@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/settings_general">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="AUTO_SHOW_WINNER"
+            android:summary="@string/settings_general_auto_win_sum"
+            android:title="@string/settings_general_auto_win" />
+
+        <Preference
+            android:key="MAX_PLAYER_NUMBER"
+            android:summary="@string/settings_general_max_player_sum"
+            android:title="@string/settings_general_max_player" />
+
+        <Preference
+            android:key="MAX_PLAYER_BOARD_NUMBER"
+            android:summary="@string/settings_general_max_white_board_sum"
+            android:title="@string/settings_general_max_white_board" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

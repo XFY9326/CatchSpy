@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_layout_diy_words"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="25dp">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edittext_diy_spy_word"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/diy_words_spy" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edittext_diy_normal_word"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/diy_words_normal" />
+
+    </android.support.design.widget.TextInputLayout>
+
+</LinearLayout>

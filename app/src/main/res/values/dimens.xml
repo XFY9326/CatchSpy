@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_content_height">17dp</dimen>
+    <dimen name="main_content_num_height">70dp</dimen>
+    <dimen name="main_content_settings_height">55dp</dimen>
+</resources>

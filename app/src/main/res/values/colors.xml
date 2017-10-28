@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#9E9E9E</color>
+    <color name="colorPrimaryDark">#616161</color>
+    <color name="colorAccent">#607D8B</color>
+    <color name="colorPrimary_Text">#212121</color>
+    <color name="colorSecondary_Text">#757575</color>
+    <color name="colorFloatingActionButtonBackGround">#546e7a</color>
+    <color name="ic_launcher_background">#26A69A</color>
+</resources>
