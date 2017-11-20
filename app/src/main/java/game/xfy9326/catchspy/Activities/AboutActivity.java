@@ -33,7 +33,7 @@ public class AboutActivity extends AppCompatActivity {
         findViewById(R.id.textview_about_open_source).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/XFY9326/CatchSpy")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/XFY9326/CatchSpy/blob/master/LICENSE")));
             }
         });
     }

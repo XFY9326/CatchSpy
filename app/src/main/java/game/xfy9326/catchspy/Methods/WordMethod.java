@@ -1,13 +1,13 @@
 package game.xfy9326.catchspy.Methods;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Random;
 
 import game.xfy9326.catchspy.R;
@@ -33,7 +33,28 @@ public class WordMethod {
     }
 
     public static String[] getDefaultPlayerWords(Context context) {
-        return getPlayerWords(getFromAssets(context, Config.DEFAULT_WORDS_FILE_NAME), Config.DEFAULT_WORDS_DATA_NAME);
+        return getPlayerWords(IOMethod.getFromAssets(context, Config.DEFAULT_WORDS_FILE_NAME), Config.DEFAULT_WORDS_DATA_NAME);
+    }
+
+    public static String[] getExtraPlayerWords(Context context, SharedPreferences sharedPreferences) {
+        String path = ExtraWordMethod.getSelectedExtraWordsPath(sharedPreferences);
+        if (path == null) {
+            sharedPreferences.edit().putBoolean(Config.PREFERENCE_ONLY_USE_EXTRA_WORDS, false).apply();
+            Toast.makeText(context, R.string.settings_extra_words_not_set, Toast.LENGTH_SHORT).show();
+            return getDefaultPlayerWords(context);
+        } else {
+            if (!sharedPreferences.getBoolean(Config.PREFERENCE_ONLY_USE_EXTRA_WORDS, Config.DEFAULT_ONLY_USE_EXTRA_WORDS)) {
+                JSONObject data = ExtraWordMethod.combineDictionary(new String[]{IOMethod.getFromAssets(context, Config.DEFAULT_WORDS_FILE_NAME), IOMethod.readFile(path)}, Config.DEFAULT_WORDS_DATA_NAME, Config.DEFAULT_EXTRA_WORDS_DATA_NAME, Config.DEFAULT_EXTRA_WORDS_DATA_NAME);
+                if (data != null) {
+                    return getPlayerWords(data.toString(), Config.DEFAULT_EXTRA_WORDS_DATA_NAME);
+                } else {
+                    Toast.makeText(context, R.string.settings_extra_words_error, Toast.LENGTH_SHORT).show();
+                    return getDefaultPlayerWords(context);
+                }
+            } else {
+                return getPlayerWords(IOMethod.readFile(path), Config.DEFAULT_EXTRA_WORDS_DATA_NAME);
+            }
+        }
     }
 
     @SuppressWarnings("SameParameterValue")
@@ -43,17 +64,26 @@ public class WordMethod {
             try {
                 JSONObject jsonObject = new JSONObject(data);
                 JSONArray jsonArray = jsonObject.getJSONArray(name);
-                int index = getRandomNum(jsonArray.length() - 1);
-                int id = getRandomNum(1);
-                JSONArray jsonArray_words = jsonArray.getJSONArray(index);
-                words[Config.PLAYER_WORD_SPY] = jsonArray_words.getString(id);
-                if (id == 0) {
-                    id = 1;
-                } else {
-                    id = 0;
+                if (jsonArray != null) {
+                    int index;
+                    if (jsonArray.length() > 1) {
+                        index = getRandomNum(jsonArray.length() - 1);
+                    } else if (jsonArray.length() == 1) {
+                        index = 0;
+                    } else {
+                        return null;
+                    }
+                    int id = getRandomNum(1);
+                    JSONArray jsonArray_words = jsonArray.getJSONArray(index);
+                    words[Config.PLAYER_WORD_SPY] = jsonArray_words.getString(id);
+                    if (id == 0) {
+                        id = 1;
+                    } else {
+                        id = 0;
+                    }
+                    words[Config.PLAYER_WORD_NORMAL] = jsonArray_words.getString(id);
+                    return words;
                 }
-                words[Config.PLAYER_WORD_NORMAL] = jsonArray_words.getString(id);
-                return words;
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -104,23 +134,6 @@ public class WordMethod {
             player[i] = Config.PLAYER_IDENTIFY_NORMAL;
         }
         return player;
-    }
-
-    @SuppressWarnings("SameParameterValue")
-    private static String getFromAssets(Context context, String fileName) {
-        try {
-            InputStreamReader inputReader = new InputStreamReader(context.getResources().getAssets().open(fileName));
-            BufferedReader bufReader = new BufferedReader(inputReader);
-            String line;
-            StringBuilder result = new StringBuilder();
-            while ((line = bufReader.readLine()) != null) {
-                result.append(line);
-            }
-            return result.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
     private static int getRandomNum(int max) {

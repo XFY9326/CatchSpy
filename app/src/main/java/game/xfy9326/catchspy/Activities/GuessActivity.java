@@ -79,7 +79,7 @@ public class GuessActivity extends AppCompatActivity {
     public void onBackPressed() {
         Snackbar snackbar = Snackbar.make(findViewById(R.id.guess_layout_content), R.string.guess_no_click_back, Snackbar.LENGTH_SHORT);
         snackbar.setActionTextColor(Color.RED);
-        snackbar.setAction(R.string.exit, new View.OnClickListener() {
+        snackbar.setAction(R.string.exit_game, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MainActivity.Instance.finish();

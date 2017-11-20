@@ -143,7 +143,6 @@ public class ShowActivity extends AppCompatActivity {
         snackbar.setAction(R.string.replay, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.Instance.finish();
                 finish();
             }
         });

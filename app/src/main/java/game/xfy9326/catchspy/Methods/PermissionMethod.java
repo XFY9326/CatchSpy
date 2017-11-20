@@ -17,7 +17,7 @@ public class PermissionMethod {
     public static final String[] StoragePermission = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
     public static void askExStoragePermission(Activity activity) {
-        if (checkExStoragePermission(activity)) {
+        if (!checkExStoragePermission(activity)) {
             ActivityCompat.requestPermissions(activity, StoragePermission, Config.REQUEST_EXTERNAL_STRANGE);
         }
     }
@@ -30,7 +30,7 @@ public class PermissionMethod {
                 break;
             }
         }
-        return !result;
+        return result;
     }
 
     public static void explainExStoragePermission(final Activity mActivity) {

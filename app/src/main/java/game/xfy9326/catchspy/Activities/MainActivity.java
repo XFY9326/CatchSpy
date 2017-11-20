@@ -142,13 +142,19 @@ public class MainActivity extends AppCompatActivity {
                 String[] words;
                 if (sharedPreferences.getBoolean(Config.PREFERENCE_USE_DIY_WORDS, Config.DEFAULT_USE_DIY_WORDS)) {
                     words = WordMethod.getStringArray(sharedPreferences.getString(Config.PREFERENCE_DIY_WORDS, Config.DEFAULT_DIY_WORDS), 2);
+                } else if (sharedPreferences.getBoolean(Config.PREFERENCE_USE_EXTRA_WORDS, Config.DEFAULT_USE_EXTRA_WORDS)) {
+                    words = WordMethod.getExtraPlayerWords(MainActivity.this, sharedPreferences);
                 } else {
                     words = WordMethod.getDefaultPlayerWords(MainActivity.this);
                 }
-                Intent intent = new Intent(MainActivity.this, ShowActivity.class);
-                intent.putExtra(Config.INTENT_EXTRA_PLAYER, WordMethod.getPlayerIdentify(playerNum, playerSpyNum, playerBoardNum));
-                intent.putExtra(Config.INTENT_EXTRA_PLAYER_WORDS, words);
-                startActivity(intent);
+                if (words == null) {
+                    Snackbar.make(findViewById(R.id.main_layout_content), R.string.settings_extra_words_error, Snackbar.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(MainActivity.this, ShowActivity.class);
+                    intent.putExtra(Config.INTENT_EXTRA_PLAYER, WordMethod.getPlayerIdentify(playerNum, playerSpyNum, playerBoardNum));
+                    intent.putExtra(Config.INTENT_EXTRA_PLAYER_WORDS, words);
+                    startActivity(intent);
+                }
             }
         });
 
