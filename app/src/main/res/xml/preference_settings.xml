@@ -41,6 +41,15 @@
             android:summary="@string/settings_extra_words_use_sum"
             android:title="@string/settings_extra_words_use" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_extra_words_manage">
+
+        <Preference
+            android:key="ADD_NEW_EXTRA_WORDS"
+            android:summary="@string/settings_extra_words_add_sum"
+            android:title="@string/settings_extra_words_add" />
+
         <Preference
             android:key="IMPORT_EXTRA_WORDS"
             android:summary="@string/settings_extra_words_import_sum"
@@ -51,10 +60,6 @@
             android:summary="@string/settings_extra_words_load_sum"
             android:title="@string/settings_extra_words_load" />
 
-        <Preference
-            android:key="ADD_NEW_EXTRA_WORDS"
-            android:summary="@string/settings_extra_words_add_sum"
-            android:title="@string/settings_extra_words_add" />
 
         <Preference
             android:key="EDIT_EXTRA_WORDS"

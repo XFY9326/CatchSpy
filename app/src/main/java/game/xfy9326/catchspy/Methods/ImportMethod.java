@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import game.xfy9326.catchspy.Tools.Code;
 import game.xfy9326.catchspy.Utils.Config;
 
 public class ImportMethod {
@@ -117,12 +116,7 @@ public class ImportMethod {
 
     private static boolean saveImportFile(String content, String name) {
         String file_path = Config.DEFAULT_APPLICATION_DATA_DIR + name;
-        if (IOMethod.writeFile(content, file_path)) {
-            if (IOMethod.renameFile(file_path, Code.unicodeEncode(name) + "-" + Code.getFileMD5String(file_path))) {
-                return true;
-            }
-        }
-        return false;
+        return EditWordMethod.saveExtraWords(null, content, file_path, name, false);
     }
 
 }

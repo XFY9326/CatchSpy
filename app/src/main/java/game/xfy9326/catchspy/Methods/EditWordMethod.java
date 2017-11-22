@@ -13,6 +13,23 @@ import game.xfy9326.catchspy.Tools.Code;
 import game.xfy9326.catchspy.Utils.Config;
 
 public class EditWordMethod {
+
+    static boolean saveExtraWords(Context context, String data, String path, String name, boolean checkUsing) {
+        if (data == null || IOMethod.writeFile(data, path)) {
+            String newName = Code.unicodeEncode(name) + "-" + Code.getFileMD5String(path);
+            if (IOMethod.renameFile(path, newName)) {
+                if (checkUsing && context != null) {
+                    if (ExtraWordMethod.isUsingDictionary(context, path)) {
+                        ExtraWordMethod.changeUsingDictionaryPath(context, new File(path).getParent() + File.separator + newName);
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
     public static ArrayList<String[]> viewExtraWordList(String path) {
         String data = IOMethod.readFile(path);
         if (data != null) {
@@ -41,16 +58,7 @@ public class EditWordMethod {
                     jsonArray.put(i, new JSONArray().put(0, words[0]).put(1, words[1]));
                 }
                 jsonObject.put(Config.DEFAULT_EXTRA_WORDS_DATA_NAME, jsonArray);
-                if (IOMethod.writeFile(jsonObject.toString(), path)) {
-                    String newName = Code.unicodeEncode(name) + "-" + Code.getFileMD5String(path);
-                    if (IOMethod.renameFile(path, newName)) {
-                        if (ExtraWordMethod.isUsingDictionary(context, path)) {
-                            ExtraWordMethod.changeUsingDictionaryPath(context, new File(path).getParent() + File.separator + newName);
-                        }
-                        return true;
-                    }
-                    return false;
-                }
+                return saveExtraWords(context, jsonObject.toString(), path, name, true);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

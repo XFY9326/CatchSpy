@@ -48,8 +48,8 @@
     <string name="settings_general_max_player">Max player number</string>
     <string name="settings_general_max_white_board">Max white board number</string>
     <string name="settings_general_auto_win">Show winner automatically</string>
-    <string name="settings_general_max_player_sum">Default count: 20</string>
-    <string name="settings_general_max_white_board_sum">Default count: 2</string>
+    <string name="settings_general_max_player_sum">Set the max number of player. (Default:20)</string>
+    <string name="settings_general_max_white_board_sum">Set the max number of white board. (Default 2)</string>
     <string name="settings_general_auto_win_sum">Will show winner alert if you open it.</string>
     <string name="diy_words">DIY Words</string>
     <string name="diy_words_open">Use DIY Words</string>
@@ -126,4 +126,5 @@
     <string name="settings_extra_words_load_sum">Load other extra dictionary from local file</string>
     <string name="settings_extra_words_load_success">Load Success!</string>
     <string name="settings_extra_words_load_failed">Load Failed!</string>
+    <string name="settings_extra_words_manage">Extra Dictionary Manage</string>
 </resources>

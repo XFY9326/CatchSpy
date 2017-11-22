@@ -94,14 +94,7 @@ public class ExtraWordMethod {
     }
 
     public static boolean renameDictionary(Context context, String path, String newName) {
-        newName = Code.unicodeEncode(newName) + "-" + Code.getFileMD5String(path);
-        if (IOMethod.renameFile(path, newName)) {
-            if (isUsingDictionary(context, path)) {
-                changeUsingDictionaryPath(context, new File(path).getParent() + File.separator + newName);
-            }
-            return true;
-        }
-        return false;
+        return EditWordMethod.saveExtraWords(context, null, path, newName, true);
     }
 
     public static void checkExistWords(Context context, String[] path, String[] file_name) {
@@ -111,13 +104,7 @@ public class ExtraWordMethod {
                 try {
                     JSONObject jsonObject = new JSONObject(data);
                     JSONArray jsonArray = delExistWords(jsonObject.getJSONArray(Config.DEFAULT_EXTRA_WORDS_DATA_NAME));
-                    if (IOMethod.writeFile(new JSONObject().put(Config.DEFAULT_EXTRA_WORDS_DATA_NAME, jsonArray).toString(), path[i])) {
-                        String newName = Code.unicodeEncode(file_name[i]) + "-" + Code.getFileMD5String(path[i]);
-                        IOMethod.renameFile(path[i], newName);
-                        if (isUsingDictionary(context, path[i])) {
-                            changeUsingDictionaryPath(context, new File(path[i]).getParent() + File.separator + newName);
-                        }
-                    }
+                    EditWordMethod.saveExtraWords(context, new JSONObject().put(Config.DEFAULT_EXTRA_WORDS_DATA_NAME, jsonArray).toString(), path[i], file_name[i], true);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

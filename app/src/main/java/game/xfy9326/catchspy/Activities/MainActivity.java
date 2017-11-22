@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == Config.REQUEST_EXTERNAL_STRANGE) {
-            if (PermissionMethod.checkExStoragePermission(this)) {
+            if (!PermissionMethod.checkExStoragePermission(this)) {
                 for (String permission : PermissionMethod.StoragePermission) {
                     if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
                         PermissionMethod.explainExStoragePermission(this);

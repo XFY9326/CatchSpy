@@ -47,8 +47,8 @@
     <string name="settings_general_auto_win">自动显示赢家</string>
     <string name="settings_general_max_player">最大玩家数量</string>
     <string name="settings_general_max_white_board">最大白板数量</string>
-    <string name="settings_general_max_player_sum">默认数量：20</string>
-    <string name="settings_general_max_white_board_sum">默认数量：2</string>
+    <string name="settings_general_max_player_sum">设置最大玩家数量（默认 20）</string>
+    <string name="settings_general_max_white_board_sum">设置最大白板数量（默认 2）</string>
     <string name="settings_general_auto_win_sum">如果打开它，将会显示赢家提示</string>
     <string name="diy_words">自定义词语</string>
     <string name="diy_words_open">使用自定义词语</string>
@@ -125,4 +125,5 @@
     <string name="settings_extra_words_load_sum">从本地文件加载其他外置词库</string>
     <string name="settings_extra_words_load_success">加载成功！</string>
     <string name="settings_extra_words_load_failed">加载失败！</string>
+    <string name="settings_extra_words_manage">外置词库管理</string>
 </resources>

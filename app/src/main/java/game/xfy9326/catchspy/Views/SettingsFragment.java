@@ -48,6 +48,7 @@ public class SettingsFragment extends PreferenceFragment {
         addPreferencesFromResource(R.xml.preference_settings);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         PreferenceSet();
+
     }
 
     private void PreferenceSet() {

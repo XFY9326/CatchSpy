@@ -24,25 +24,25 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:gravity="center_vertical"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp">
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="@string/player_number"
                     android:textSize="17sp" />
 
                 <Spinner
                     android:id="@+id/spinner_main_player_number"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5" />
 
             </LinearLayout>
 
@@ -62,25 +62,25 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:gravity="center_vertical"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp">
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="@string/player_number_spy"
                     android:textSize="17sp" />
 
                 <Spinner
                     android:id="@+id/spinner_main_player_number_spy"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5" />
 
             </LinearLayout>
 
@@ -100,25 +100,25 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:gravity="center_vertical"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp">
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:text="@string/player_number_white_board"
                     android:textSize="17sp" />
 
                 <Spinner
                     android:id="@+id/spinner_main_player_number_white_board"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5" />
 
             </LinearLayout>
 
