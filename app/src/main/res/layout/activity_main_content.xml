@@ -27,8 +27,8 @@
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:gravity="center_vertical"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp">
 
                 <TextView
                     android:layout_width="0dp"
@@ -65,8 +65,8 @@
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:gravity="center_vertical"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp">
 
                 <TextView
                     android:layout_width="0dp"
@@ -103,8 +103,8 @@
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:gravity="center_vertical"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp">
 
                 <TextView
                     android:layout_width="0dp"

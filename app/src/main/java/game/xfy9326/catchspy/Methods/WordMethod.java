@@ -91,12 +91,12 @@ public class WordMethod {
         return null;
     }
 
-    public static int[] getPlayerIdentify(int playerNum, int spyNum, int boardNum) {
+    public static int[] getPlayerIdentify(int playerNum, int spyNum, int boardNum, boolean board_not_first) {
         int[] player = initPlayerIdentify(playerNum);
         //Spy Set
-        player = randomSet(player, spyNum, playerNum, Config.PLAYER_IDENTIFY_SPY);
+        player = randomSet(player, spyNum, playerNum, Config.PLAYER_IDENTIFY_SPY, board_not_first);
         //Board Set
-        player = randomSet(player, boardNum, playerNum, Config.PLAYER_IDENTIFY_WHITE_BOARD);
+        player = randomSet(player, boardNum, playerNum, Config.PLAYER_IDENTIFY_WHITE_BOARD, board_not_first);
         return player;
     }
 
@@ -111,7 +111,7 @@ public class WordMethod {
         return null;
     }
 
-    private static int[] randomSet(int[] player, int randomNum, int range, int type) {
+    private static int[] randomSet(int[] player, int randomNum, int range, int type, boolean not_first) {
         Random random = new Random();
         int num;
         boolean num_reset;
@@ -119,6 +119,9 @@ public class WordMethod {
             num_reset = true;
             while (num_reset) {
                 num = random.nextInt(range);
+                if (not_first && num == 0) {
+                    continue;
+                }
                 if (player[num] == Config.PLAYER_IDENTIFY_NORMAL) {
                     player[num] = type;
                     num_reset = false;

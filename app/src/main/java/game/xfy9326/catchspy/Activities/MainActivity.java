@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
                     Snackbar.make(findViewById(R.id.main_layout_content), R.string.settings_extra_words_error, Snackbar.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(MainActivity.this, ShowActivity.class);
-                    intent.putExtra(Config.INTENT_EXTRA_PLAYER, WordMethod.getPlayerIdentify(playerNum, playerSpyNum, playerBoardNum));
+                    intent.putExtra(Config.INTENT_EXTRA_PLAYER, WordMethod.getPlayerIdentify(playerNum, playerSpyNum, playerBoardNum, sharedPreferences.getBoolean(Config.PREFERENCE_WHITE_BOARD_NOT_FIRST, Config.DEFAULT__WHITE_BOARD_NOT_FIRST)));
                     intent.putExtra(Config.INTENT_EXTRA_PLAYER_WORDS, words);
                     startActivity(intent);
                 }

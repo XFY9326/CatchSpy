@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -20,9 +21,11 @@ import game.xfy9326.catchspy.R;
 import game.xfy9326.catchspy.Tools.Code;
 import game.xfy9326.catchspy.Tools.URI;
 import game.xfy9326.catchspy.Utils.Config;
-import game.xfy9326.catchspy.Views.SettingsFragment;
+import game.xfy9326.catchspy.Views.GlobalSettingsFragment;
 
 public class SettingsActivity extends AppCompatActivity {
+    public boolean openExtraDictionaryFragment;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +45,29 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void setFragment(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
-            SettingsFragment settingsFragment = new SettingsFragment();
+            GlobalSettingsFragment globalSettingsFragment = new GlobalSettingsFragment();
             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.layout_settings_content, settingsFragment);
+            fragmentTransaction.replace(R.id.layout_settings_content, globalSettingsFragment);
             fragmentTransaction.commit();
+            openExtraDictionaryFragment = false;
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (openExtraDictionaryFragment) {
+            setFragment(null);
+        } else {
+            super.onBackPressed();
         }
     }
 

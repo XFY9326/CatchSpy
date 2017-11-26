@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:key="GAME_RULE"
+        android:title="@string/game_rule" />
+
+    <PreferenceCategory android:title="@string/settings_general">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="AUTO_SHOW_WINNER"
+            android:summary="@string/settings_general_auto_win_sum"
+            android:title="@string/settings_general_auto_win" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="WHITE_BOARD_NOT_FIRST"
+            android:summary="@string/settings_general_white_board_not_first_sum"
+            android:title="@string/settings_general_white_board_not_first" />
+
+        <Preference
+            android:key="MAX_PLAYER_NUMBER"
+            android:summary="@string/settings_general_max_player_sum"
+            android:title="@string/settings_general_max_player" />
+
+        <Preference
+            android:key="MAX_PLAYER_BOARD_NUMBER"
+            android:summary="@string/settings_general_max_white_board_sum"
+            android:title="@string/settings_general_max_white_board" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_extra_words">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="USE_EXTRA_WORDS"
+            android:summary="@string/settings_extra_words_use_extra_words_sum"
+            android:title="@string/settings_extra_words_use_extra_words" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:dependency="USE_EXTRA_WORDS"
+            android:key="ONLY_USE_EXTRA_WORDS"
+            android:summary="@string/settings_extra_words_only_use_extra_words_sum"
+            android:title="@string/settings_extra_words_only_use_extra_words" />
+
+        <Preference
+            android:key="MANAGE_EXTRA_DICTIONARY"
+            android:summary="@string/settings_extra_words_manage_sum"
+            android:title="@string/settings_extra_words_manage" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

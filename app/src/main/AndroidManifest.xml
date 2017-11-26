@@ -46,6 +46,15 @@
         </activity>
 
         <activity
+            android:name=".Activities.RuleActivity"
+            android:label="@string/game_rule"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.SettingsActivity" />
+        </activity>
+
+        <activity
             android:name=".Activities.ImportActivity"
             android:label="@string/settings_extra_words_import"
             tools:ignore="InnerclassSeparator">

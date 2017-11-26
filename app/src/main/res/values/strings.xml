@@ -127,4 +127,11 @@
     <string name="settings_extra_words_load_success">Load Success!</string>
     <string name="settings_extra_words_load_failed">Load Failed!</string>
     <string name="settings_extra_words_manage">Extra Dictionary Manage</string>
+    <string name="settings_extra_words_manage_sum">Add and edit extra dictionary.</string>
+    <string name="settings_extra_words_manage_add">Add new dictionary</string>
+    <string name="settings_extra_words_manage_edit">Edit dictionary</string>
+    <string name="settings_extra_words_manage_advanced">Advanced functions</string>
+    <string name="settings_general_white_board_not_first">White board not first</string>
+    <string name="settings_general_white_board_not_first_sum">The first player will not be white board.</string>
+    <string name="game_rule">Game Rule</string>
 </resources>

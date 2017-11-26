@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/settings_general">
-
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="AUTO_SHOW_WINNER"
-            android:summary="@string/settings_general_auto_win_sum"
-            android:title="@string/settings_general_auto_win" />
-
-        <Preference
-            android:key="MAX_PLAYER_NUMBER"
-            android:summary="@string/settings_general_max_player_sum"
-            android:title="@string/settings_general_max_player" />
-
-        <Preference
-            android:key="MAX_PLAYER_BOARD_NUMBER"
-            android:summary="@string/settings_general_max_white_board_sum"
-            android:title="@string/settings_general_max_white_board" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/settings_extra_words">
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="USE_EXTRA_WORDS"
-            android:summary="@string/settings_extra_words_use_extra_words_sum"
-            android:title="@string/settings_extra_words_use_extra_words" />
-
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:dependency="USE_EXTRA_WORDS"
-            android:key="ONLY_USE_EXTRA_WORDS"
-            android:summary="@string/settings_extra_words_only_use_extra_words_sum"
-            android:title="@string/settings_extra_words_only_use_extra_words" />
+    <PreferenceCategory android:title="@string/settings_extra_words_manage">
 
         <Preference
             android:key="SELECT_EXTRA_WORDS"
@@ -43,7 +10,7 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/settings_extra_words_manage">
+    <PreferenceCategory android:title="@string/settings_extra_words_manage_add">
 
         <Preference
             android:key="ADD_NEW_EXTRA_WORDS"
@@ -60,6 +27,9 @@
             android:summary="@string/settings_extra_words_load_sum"
             android:title="@string/settings_extra_words_load" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_extra_words_manage_edit">
 
         <Preference
             android:key="EDIT_EXTRA_WORDS"
@@ -75,6 +45,10 @@
             android:key="DELETE_EXTRA_WORDS"
             android:summary="@string/settings_extra_words_delete_dictionary_sum"
             android:title="@string/settings_extra_words_delete_dictionary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_extra_words_manage_advanced">
 
         <Preference
             android:key="COMBINE_EXTRA_WORDS"

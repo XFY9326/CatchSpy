@@ -126,4 +126,11 @@
     <string name="settings_extra_words_load_success">加载成功！</string>
     <string name="settings_extra_words_load_failed">加载失败！</string>
     <string name="settings_extra_words_manage">外置词库管理</string>
+    <string name="settings_extra_words_manage_sum">新增或编辑外置词库</string>
+    <string name="settings_extra_words_manage_add">新增词库</string>
+    <string name="settings_extra_words_manage_edit">编辑词库</string>
+    <string name="settings_extra_words_manage_advanced">高级功能</string>
+    <string name="settings_general_white_board_not_first">白板非首发</string>
+    <string name="settings_general_white_board_not_first_sum">第一个玩家不会成为白板</string>
+    <string name="game_rule">游戏规则</string>
 </resources>

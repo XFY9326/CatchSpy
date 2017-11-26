@@ -24,14 +24,14 @@ public class IOMethod {
     }
 
     @SuppressWarnings("SameParameterValue")
-    static String getFromAssets(Context context, String fileName) {
+    public static String getFromAssets(Context context, String fileName) {
         try {
             InputStreamReader inputReader = new InputStreamReader(context.getResources().getAssets().open(fileName));
             BufferedReader bufReader = new BufferedReader(inputReader);
             String line;
             StringBuilder result = new StringBuilder();
             while ((line = bufReader.readLine()) != null) {
-                result.append(line);
+                result.append(line).append("\n");
             }
             return result.toString();
         } catch (Exception e) {

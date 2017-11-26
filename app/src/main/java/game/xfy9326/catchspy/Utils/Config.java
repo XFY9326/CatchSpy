@@ -23,6 +23,7 @@ public class Config {
     public static final int IMPORT_OUTPUT_ERROR = 4;
 
     public static final String DEFAULT_WORDS_FILE_NAME = "default_local_words.json";
+    public static final String DEFAULT_RULE_FILE_NAME = "rule.txt";
     public static final String DEFAULT_WORDS_DATA_NAME = "local_words";
     public static final String DEFAULT_EXTRA_WORDS_DATA_NAME = "addon_words";
 
@@ -37,6 +38,7 @@ public class Config {
     public static final int DEFAULT_MAX_PLAYER_NUMBER = 20;
     public static final int DEFAULT_MAX_PLAYER_BOARD_NUMBER = 2;
     public static final boolean DEFAULT_AUTO_SHOW_WINNER = true;
+    public static final boolean DEFAULT__WHITE_BOARD_NOT_FIRST = true;
     public static final boolean DEFAULT_USE_DIY_WORDS = false;
     public static final String DEFAULT_DIY_WORDS = "[]";
     public static final boolean DEFAULT_USE_EXTRA_WORDS = false;
@@ -44,6 +46,7 @@ public class Config {
 
     public static final String PREFERENCE_MAX_PLAYER_NUMBER = "MAX_PLAYER_NUMBER";
     public static final String PREFERENCE_MAX_PLAYER_BOARD_NUMBER = "MAX_PLAYER_BOARD_NUMBER";
+    public static final String PREFERENCE_WHITE_BOARD_NOT_FIRST = "WHITE_BOARD_NOT_FIRST";
     public static final String PREFERENCE_AUTO_SHOW_WINNER = "AUTO_SHOW_WINNER";
     public static final String PREFERENCE_USE_DIY_WORDS = "USE_DIY_WORDS";
     public static final String PREFERENCE_DIY_WORDS = "DIY_WORDS";
@@ -58,6 +61,8 @@ public class Config {
     public static final String PREFERENCE_DELETE_EXTRA_WORDS = "DELETE_EXTRA_WORDS";
     public static final String PREFERENCE_CHECK_EXTRA_WORDS = "CHECK_EXTRA_WORDS";
     public static final String PREFERENCE_RENAME_EXTRA_WORDS = "RENAME_EXTRA_WORDS";
+    public static final String PREFERENCE_MANAGE_EXTRA_DICTIONARY = "MANAGE_EXTRA_DICTIONARY";
+    public static final String PREFERENCE_GAME_RULE = "GAME_RULE";
 
     public static final int PLAYER_IDENTIFY_NORMAL = 0;
     public static final int PLAYER_IDENTIFY_SPY = 1;

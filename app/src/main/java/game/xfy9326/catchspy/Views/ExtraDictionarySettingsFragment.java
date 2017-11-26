@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -14,7 +13,6 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -30,54 +28,25 @@ import game.xfy9326.catchspy.Activities.ImportActivity;
 import game.xfy9326.catchspy.Methods.ExtraWordMethod;
 import game.xfy9326.catchspy.Methods.IOMethod;
 import game.xfy9326.catchspy.Methods.ImportMethod;
-import game.xfy9326.catchspy.Methods.PermissionMethod;
 import game.xfy9326.catchspy.R;
 import game.xfy9326.catchspy.Tools.Code;
 import game.xfy9326.catchspy.Utils.Config;
 import game.xfy9326.catchspy.Utils.MessageHandler;
 
-public class SettingsFragment extends PreferenceFragment {
+public class ExtraDictionarySettingsFragment extends PreferenceFragment {
     private SharedPreferences sharedPreferences;
     private AlertDialog loading;
     private boolean[] checkedItem;
     private int singleChoiceResult;
 
-    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.preference_settings);
+        addPreferencesFromResource(R.xml.preference_extra_dictionary_settings);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         PreferenceSet();
-
     }
 
     private void PreferenceSet() {
-        findPreference(Config.PREFERENCE_MAX_PLAYER_NUMBER).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                playerNumberAlert(getString(R.string.settings_general_max_player), Config.PREFERENCE_MAX_PLAYER_NUMBER, Config.DEFAULT_MIN_PLAYER_NUM, Config.DEFAULT_MAX_NUMBER, sharedPreferences.getInt(Config.PREFERENCE_MAX_PLAYER_NUMBER, Config.DEFAULT_MAX_PLAYER_NUMBER));
-                return true;
-            }
-        });
-        findPreference(Config.PREFERENCE_MAX_PLAYER_BOARD_NUMBER).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                playerNumberAlert(getString(R.string.settings_general_max_white_board), Config.PREFERENCE_MAX_PLAYER_BOARD_NUMBER, Config.DEFAULT_MIN_PLAYER_BOARD_NUM, Config.DEFAULT_MAX_NUMBER, sharedPreferences.getInt(Config.PREFERENCE_MAX_PLAYER_BOARD_NUMBER, Config.DEFAULT_MAX_PLAYER_BOARD_NUMBER));
-                return true;
-            }
-        });
-        findPreference(Config.PREFERENCE_USE_EXTRA_WORDS).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                return extraWordsUse(preference, (boolean) newValue);
-            }
-        });
-        findPreference(Config.PREFERENCE_ONLY_USE_EXTRA_WORDS).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                return extraWordsOnlyUse(preference, (boolean) newValue);
-            }
-        });
         findPreference(Config.PREFERENCE_IMPORT_EXTRA_WORDS).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
@@ -141,53 +110,6 @@ public class SettingsFragment extends PreferenceFragment {
                 return true;
             }
         });
-    }
-
-    @SuppressWarnings("SameParameterValue")
-    private void playerNumberAlert(String title, final String preferenceName, int min, int max, int default_num) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = LayoutInflater.from(getActivity());
-        View mView = inflater.inflate(R.layout.dialog_number_picker, (ViewGroup) getActivity().findViewById(R.id.dialog_layout_number_picker));
-        final NumberPicker numberPicker = mView.findViewById(R.id.dialog_number_picker);
-        numberPicker.setMinValue(min);
-        numberPicker.setMaxValue(max);
-        numberPicker.setValue(default_num);
-        builder.setTitle(title);
-        builder.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                sharedPreferences.edit().putInt(preferenceName, numberPicker.getValue()).apply();
-            }
-        });
-        builder.setNegativeButton(R.string.cancel, null);
-        builder.setView(mView);
-        builder.show();
-    }
-
-    private boolean extraWordsUse(Preference preference, boolean value) {
-        if (value) {
-            if (PermissionMethod.checkExStoragePermission(getActivity())) {
-                return true;
-            } else {
-                ((CheckBoxPreference) preference).setChecked(false);
-                Toast.makeText(getActivity(), R.string.permission_request_error, Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private boolean extraWordsOnlyUse(Preference preference, boolean value) {
-        if (value) {
-            if (ExtraWordMethod.getSelectedExtraWordsPath(sharedPreferences) == null) {
-                ((CheckBoxPreference) preference).setChecked(false);
-                Toast.makeText(getActivity(), R.string.settings_extra_words_not_set, Toast.LENGTH_SHORT).show();
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return true;
     }
 
     private void loadLocalDictionary() {
@@ -298,12 +220,12 @@ public class SettingsFragment extends PreferenceFragment {
         }
     }
 
-    private void editWords(String path, String name) {
-        startActivity(new Intent(getActivity(), EditActivity.class).putExtra(Config.INTENT_EXTRA_PATH, path).putExtra(Config.INTENT_EXTRA_FILE_NAME, name));
-    }
-
     private void selectDictionary(String path) {
         sharedPreferences.edit().putString(Config.PREFERENCE_SELECT_EXTRA_WORDS, path).apply();
+    }
+
+    private void editWords(String path, String name) {
+        startActivity(new Intent(getActivity(), EditActivity.class).putExtra(Config.INTENT_EXTRA_PATH, path).putExtra(Config.INTENT_EXTRA_FILE_NAME, name));
     }
 
     private void renameDictionary(final String path, String name) {
@@ -470,4 +392,5 @@ public class SettingsFragment extends PreferenceFragment {
         dialog.setCancelable(false);
         loading = dialog.show();
     }
+
 }
