@@ -74,8 +74,13 @@ public class GuessListAdapter extends RecyclerView.Adapter<GuessListViewHolder> 
     }
 
     private void showAnswer(GuessListViewHolder holder) {
-        holder.textview_player_word.setText(PlayerWord[PlayerId[holder.getAdapterPosition()]]);
-        holder.textview_player_identify.setText(WordMethod.getPlayerIdentifyString(activity, PlayerId[holder.getAdapterPosition()]));
+        int id = PlayerId[holder.getAdapterPosition()];
+        if (id == Config.PLAYER_IDENTIFY_WHITE_BOARD) {
+            holder.textview_player_word.setText(activity.getString(R.string.white_board));
+        } else {
+            holder.textview_player_word.setText(PlayerWord[id]);
+        }
+        holder.textview_player_identify.setText(WordMethod.getPlayerIdentifyString(activity, id));
     }
 
     private boolean[] getPlayerShowed(int length) {
