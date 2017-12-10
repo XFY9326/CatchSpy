@@ -39,13 +39,13 @@ public class GuessListAdapter extends RecyclerView.Adapter<GuessListViewHolder> 
     public void onBindViewHolder(final GuessListViewHolder holder, int position) {
         holder.textview_player_name.setText(PlayerName[holder.getAdapterPosition()]);
         if (showAll) {
-            showAnswer(holder);
+            showAnswer(holder, true);
         } else {
             holder.cardview_list.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     PlayerShowed[holder.getAdapterPosition()] = true;
-                    showAnswer(holder);
+                    showAnswer(holder, false);
                     if (!showAll) {
                         if (PreferenceManager.getDefaultSharedPreferences(activity).getBoolean(Config.PREFERENCE_AUTO_SHOW_WINNER, Config.DEFAULT_AUTO_SHOW_WINNER)) {
                             int winner = getWinner();
@@ -73,12 +73,14 @@ public class GuessListAdapter extends RecyclerView.Adapter<GuessListViewHolder> 
         return PlayerName.length;
     }
 
-    private void showAnswer(GuessListViewHolder holder) {
+    private void showAnswer(GuessListViewHolder holder, boolean showWords) {
         int id = PlayerId[holder.getAdapterPosition()];
-        if (id == Config.PLAYER_IDENTIFY_WHITE_BOARD) {
-            holder.textview_player_word.setText(activity.getString(R.string.white_board));
-        } else {
-            holder.textview_player_word.setText(PlayerWord[id]);
+        if (showWords) {
+            if (id == Config.PLAYER_IDENTIFY_WHITE_BOARD) {
+                holder.textview_player_word.setText(activity.getString(R.string.white_board));
+            } else {
+                holder.textview_player_word.setText(PlayerWord[id]);
+            }
         }
         holder.textview_player_identify.setText(WordMethod.getPlayerIdentifyString(activity, id));
     }

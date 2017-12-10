@@ -7,9 +7,10 @@ android {
     defaultConfig {
         applicationId "game.xfy9326.catchspy"
         minSdkVersion 19
+        //noinspection OldTargetApi
         targetSdkVersion 26
-        versionCode 3
-        versionName "1.2"
+        versionCode 4
+        versionName "1.3"
     }
 
     buildTypes {
