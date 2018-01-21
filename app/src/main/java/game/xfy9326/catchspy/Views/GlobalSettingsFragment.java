@@ -89,13 +89,13 @@ public class GlobalSettingsFragment extends PreferenceFragment {
         numberPicker.setMaxValue(max);
         numberPicker.setValue(default_num);
         builder.setTitle(title);
-        builder.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 sharedPreferences.edit().putInt(preferenceName, numberPicker.getValue()).apply();
             }
         });
-        builder.setNegativeButton(R.string.cancel, null);
+        builder.setNegativeButton(android.R.string.no, null);
         builder.setView(mView);
         builder.show();
     }

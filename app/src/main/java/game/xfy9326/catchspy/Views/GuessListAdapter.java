@@ -123,7 +123,7 @@ public class GuessListAdapter extends RecyclerView.Adapter<GuessListViewHolder> 
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle(text);
         builder.setMessage(R.string.win_msg);
-        builder.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 activity.finish();

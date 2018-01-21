@@ -18,14 +18,14 @@
             android:title="@string/settings_extra_words_add" />
 
         <Preference
-            android:key="IMPORT_EXTRA_WORDS"
-            android:summary="@string/settings_extra_words_import_sum"
-            android:title="@string/settings_extra_words_import" />
-
-        <Preference
             android:key="LOAD_LOCAL_DICTIONARY"
             android:summary="@string/settings_extra_words_load_sum"
             android:title="@string/settings_extra_words_load" />
+
+        <Preference
+            android:key="IMPORT_EXTRA_WORDS"
+            android:summary="@string/settings_extra_words_import_sum"
+            android:title="@string/settings_extra_words_import" />
 
     </PreferenceCategory>
 

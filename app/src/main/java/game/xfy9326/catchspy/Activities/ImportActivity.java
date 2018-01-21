@@ -119,7 +119,7 @@ public class ImportActivity extends AppCompatActivity {
                 }
             }
         });
-        builder.setNegativeButton(R.string.cancel, null);
+        builder.setNegativeButton(android.R.string.no, null);
         builder.setView(mView);
         builder.show();
     }
@@ -145,7 +145,7 @@ public class ImportActivity extends AppCompatActivity {
                 }
             }
         });
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();

@@ -43,6 +43,9 @@ public class Config {
     public static final String DEFAULT_DIY_WORDS = "[]";
     public static final boolean DEFAULT_USE_EXTRA_WORDS = false;
     public static final boolean DEFAULT_ONLY_USE_EXTRA_WORDS = false;
+    public static final boolean DEFAULT_NOTIFY_PLAYER_NAME_DELETE = true;
+
+    public static final String DATA_PLAYER_NAME = "PLAYER_NAME";
 
     public static final String PREFERENCE_MAX_PLAYER_NUMBER = "MAX_PLAYER_NUMBER";
     public static final String PREFERENCE_MAX_PLAYER_BOARD_NUMBER = "MAX_PLAYER_BOARD_NUMBER";
@@ -63,6 +66,7 @@ public class Config {
     public static final String PREFERENCE_RENAME_EXTRA_WORDS = "RENAME_EXTRA_WORDS";
     public static final String PREFERENCE_MANAGE_EXTRA_DICTIONARY = "MANAGE_EXTRA_DICTIONARY";
     public static final String PREFERENCE_GAME_RULE = "GAME_RULE";
+    public static final String PREFERENCE_NOTIFY_PLAYER_NAME_DELETE = "NOTIFY_PLAYER_NAME_DELETE";
 
     public static final int PLAYER_IDENTIFY_NORMAL = 0;
     public static final int PLAYER_IDENTIFY_SPY = 1;

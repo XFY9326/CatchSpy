@@ -26,6 +26,7 @@ import android.widget.Toast;
 import java.util.Arrays;
 
 import game.xfy9326.catchspy.Methods.ApplicationMethod;
+import game.xfy9326.catchspy.Methods.GameMethod;
 import game.xfy9326.catchspy.Methods.PermissionMethod;
 import game.xfy9326.catchspy.Methods.WordMethod;
 import game.xfy9326.catchspy.R;
@@ -150,10 +151,13 @@ public class MainActivity extends AppCompatActivity {
                 if (words == null) {
                     Snackbar.make(findViewById(R.id.main_layout_content), R.string.settings_extra_words_error, Snackbar.LENGTH_SHORT).show();
                 } else {
-                    Intent intent = new Intent(MainActivity.this, ShowActivity.class);
-                    intent.putExtra(Config.INTENT_EXTRA_PLAYER, WordMethod.getPlayerIdentify(playerNum, playerSpyNum, playerBoardNum, sharedPreferences.getBoolean(Config.PREFERENCE_WHITE_BOARD_NOT_FIRST, Config.DEFAULT__WHITE_BOARD_NOT_FIRST)));
-                    intent.putExtra(Config.INTENT_EXTRA_PLAYER_WORDS, words);
-                    startActivity(intent);
+                    boolean notify_player_name_delete = sharedPreferences.getBoolean(Config.PREFERENCE_NOTIFY_PLAYER_NAME_DELETE, Config.DEFAULT_NOTIFY_PLAYER_NAME_DELETE);
+                    int[] players = WordMethod.getPlayerIdentify(playerNum, playerSpyNum, playerBoardNum, sharedPreferences.getBoolean(Config.PREFERENCE_WHITE_BOARD_NOT_FIRST, Config.DEFAULT__WHITE_BOARD_NOT_FIRST));
+                    if (GameMethod.checkPlayerName(sharedPreferences, playerNum) && notify_player_name_delete) {
+                        GameMethod.showPlayerNameDialog(MainActivity.this, sharedPreferences, players, words);
+                    } else {
+                        GameMethod.startGame(MainActivity.this, players, words, null);
+                    }
                 }
             }
         });
@@ -216,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
         final TextInputEditText edit_normal = mView.findViewById(R.id.edittext_diy_normal_word);
         edit_spy.setText(words[Config.PLAYER_WORD_SPY]);
         edit_normal.setText(words[Config.PLAYER_WORD_NORMAL]);
-        builder.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String[] result = new String[2];
@@ -232,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
                 sharedPreferences.edit().putString(Config.PREFERENCE_DIY_WORDS, Arrays.toString(result)).apply();
             }
         });
-        builder.setNegativeButton(R.string.cancel, null);
+        builder.setNegativeButton(android.R.string.no, null);
         builder.setView(mView);
         builder.show();
     }

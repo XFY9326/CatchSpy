@@ -15,6 +15,12 @@
 
         <CheckBoxPreference
             android:defaultValue="true"
+            android:key="NOTIFY_PLAYER_NAME_DELETE"
+            android:summary="@string/settings_general_notify_player_name_delete_sum"
+            android:title="@string/settings_general_notify_player_name_delete" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
             android:key="WHITE_BOARD_NOT_FIRST"
             android:summary="@string/settings_general_white_board_not_first_sum"
             android:title="@string/settings_general_white_board_not_first" />

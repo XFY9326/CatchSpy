@@ -6,8 +6,6 @@
     <string name="player_number_spy">卧底数量：</string>
     <string name="player_number_white_board">白板数量：</string>
     <string name="settings">设置</string>
-    <string name="done">确认</string>
-    <string name="cancel">取消</string>
     <string name="about">关于</string>
     <string name="imageview_app_icon">应用图标</string>
     <string name="application_version">版本：</string>
@@ -60,8 +58,8 @@
     <string name="settings_extra_words_only_use_extra_words">纯外置词库模式</string>
     <string name="settings_extra_words_only_use_extra_words_sum">只使用外置词库进行游戏</string>
     <string name="settings_extra_words">外置词库</string>
-    <string name="settings_extra_words_import">导入外置词库</string>
-    <string name="settings_extra_words_import_sum">使用自定义的规则导入不同的词语文件</string>
+    <string name="settings_extra_words_import">导入外置词语文件</string>
+    <string name="settings_extra_words_import_sum">使用自定义的规则导入词语</string>
     <string name="settings_extra_words_edit">编辑外置词库</string>
     <string name="settings_extra_words_edit_sum">编辑外置词库文件</string>
     <string name="settings_extra_words_combine">合并不同的词库文件</string>
@@ -121,8 +119,8 @@
     <string name="import_advanced_word_match">词正则表达式</string>
     <string name="import_advanced_group_match_error">组匹配正则错误！</string>
     <string name="import_advanced_word_match_error">词匹配正则错误！</string>
-    <string name="settings_extra_words_load">加载外置词语</string>
-    <string name="settings_extra_words_load_sum">从本地文件加载其他外置词库</string>
+    <string name="settings_extra_words_load">导入词库</string>
+    <string name="settings_extra_words_load_sum">从本地文件加载词库</string>
     <string name="settings_extra_words_load_success">加载成功！</string>
     <string name="settings_extra_words_load_failed">加载失败！</string>
     <string name="settings_extra_words_manage">外置词库管理</string>
@@ -133,4 +131,9 @@
     <string name="settings_general_white_board_not_first">白板非首发</string>
     <string name="settings_general_white_board_not_first_sum">第一个玩家不会成为白板</string>
     <string name="game_rule">游戏规则</string>
+    <string name="player_name_change_title">发现存在自定义的玩家姓名！</string>
+    <string name="player_name_change_content">删除这组自定义的玩家姓名吗？</string>
+    <string name="skip">跳过</string>
+    <string name="settings_general_notify_player_name_delete">提示自定义的玩家姓名删除</string>
+    <string name="settings_general_notify_player_name_delete_sum">关闭后将自动删除自定义玩家姓名</string>
 </resources>

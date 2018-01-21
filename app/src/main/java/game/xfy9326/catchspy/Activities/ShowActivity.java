@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import game.xfy9326.catchspy.Methods.GameMethod;
 import game.xfy9326.catchspy.R;
 import game.xfy9326.catchspy.Utils.Config;
 
@@ -23,6 +24,9 @@ public class ShowActivity extends AppCompatActivity {
     private static String[] PlayerName;
     //Play Words
     private static String[] PlayerWords;
+    private boolean hasPlayerName = false;
+    private boolean changePlayerName = false;
+    private String defaultPlayerName;
     private boolean wordsPlayed = false;
     private int playingPlayerNumber = 0;
     private int playerNumber = 0;
@@ -43,12 +47,18 @@ public class ShowActivity extends AppCompatActivity {
         if (intent != null) {
             Player = intent.getIntArrayExtra(Config.INTENT_EXTRA_PLAYER);
             PlayerWords = intent.getStringArrayExtra(Config.INTENT_EXTRA_PLAYER_WORDS);
+            PlayerName = intent.getStringArrayExtra(Config.INTENT_EXTRA_PLAYER_NAME);
             if (Player == null || PlayerWords == null) {
                 Toast.makeText(this, R.string.data_error, Toast.LENGTH_SHORT).show();
                 finish();
             } else {
                 playerNumber = Player.length;
-                PlayerName = new String[playerNumber];
+                if (PlayerName == null) {
+                    PlayerName = new String[playerNumber];
+                } else {
+                    hasPlayerName = true;
+                    changePlayerName = true;
+                }
             }
         } else {
             Toast.makeText(this, R.string.data_error, Toast.LENGTH_SHORT).show();
@@ -73,14 +83,16 @@ public class ShowActivity extends AppCompatActivity {
                     if (name.equals("")) {
                         name = getString(R.string.player) + (playingPlayerNumber + 1);
                     }
+                    if (!defaultPlayerName.equals(name)) {
+                        changePlayerName = true;
+                    }
                     PlayerName[playingPlayerNumber] = name;
                     if (playingPlayerNumber >= playerNumber - 1) {
                         //Show word finish
-                        Intent intent = new Intent(ShowActivity.this, GuessActivity.class);
-                        intent.putExtra(Config.INTENT_EXTRA_PLAYER, Player);
-                        intent.putExtra(Config.INTENT_EXTRA_PLAYER_NAME, PlayerName);
-                        intent.putExtra(Config.INTENT_EXTRA_PLAYER_WORDS, PlayerWords);
-                        startActivity(intent);
+                        if (changePlayerName) {
+                            GameMethod.savePlayerName(ShowActivity.this, PlayerName);
+                        }
+                        startGuess();
                         finish();
                     } else {
                         //Next Player
@@ -120,7 +132,13 @@ public class ShowActivity extends AppCompatActivity {
     }
 
     private void setPlayerName() {
-        String name = getString(R.string.player) + (playingPlayerNumber + 1);
+        String name;
+        defaultPlayerName = getString(R.string.player) + (playingPlayerNumber + 1);
+        if (hasPlayerName) {
+            name = PlayerName[playingPlayerNumber];
+        } else {
+            name = defaultPlayerName;
+        }
         editText_player_name.setText(name);
     }
 
@@ -134,6 +152,14 @@ public class ShowActivity extends AppCompatActivity {
                 textView_attentions.setText(R.string.show_press_button_next);
             }
         }
+    }
+
+    private void startGuess() {
+        Intent intent = new Intent(ShowActivity.this, GuessActivity.class);
+        intent.putExtra(Config.INTENT_EXTRA_PLAYER, Player);
+        intent.putExtra(Config.INTENT_EXTRA_PLAYER_NAME, PlayerName);
+        intent.putExtra(Config.INTENT_EXTRA_PLAYER_WORDS, PlayerWords);
+        startActivity(intent);
     }
 
     @Override

@@ -74,7 +74,7 @@ public class EditActivity extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.attention);
             builder.setMessage(R.string.edit_exit_warn);
-            builder.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+            builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     if (EditWordMethod.saveArrayToFile(EditActivity.this, editListAdapter.getEditedData(), ExtraWordsPath, ExtraWordsFileName)) {
@@ -85,7 +85,7 @@ public class EditActivity extends AppCompatActivity {
                     }
                 }
             });
-            builder.setNegativeButton(R.string.cancel, null);
+            builder.setNegativeButton(android.R.string.no, null);
             builder.setNeutralButton(R.string.exit, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {

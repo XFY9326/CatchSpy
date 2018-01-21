@@ -59,7 +59,7 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListViewHolder> {
         builder.setTitle(R.string.add);
         final TextInputEditText word_1 = mView.findViewById(R.id.edittext_edit_word_1);
         final TextInputEditText word_2 = mView.findViewById(R.id.edittext_edit_word_2);
-        builder.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String edit_1 = word_1.getText().toString();
@@ -73,7 +73,7 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListViewHolder> {
                 }
             }
         });
-        builder.setNegativeButton(R.string.cancel, null);
+        builder.setNegativeButton(android.R.string.no, null);
         builder.setView(mView);
         builder.show();
     }
@@ -87,7 +87,7 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListViewHolder> {
         final TextInputEditText word_2 = mView.findViewById(R.id.edittext_edit_word_2);
         word_1.setText(ExtraWord.get(position)[0]);
         word_2.setText(ExtraWord.get(position)[1]);
-        builder.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String edit_1 = word_1.getText().toString();
@@ -101,7 +101,7 @@ public class EditListAdapter extends RecyclerView.Adapter<EditListViewHolder> {
                 }
             }
         });
-        builder.setNegativeButton(R.string.cancel, null);
+        builder.setNegativeButton(android.R.string.no, null);
         builder.setNeutralButton(R.string.delete, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

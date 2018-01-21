@@ -125,7 +125,7 @@ public class ExtraDictionarySettingsFragment extends PreferenceFragment {
         editText.setText(name);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.settings_extra_words_add);
-        builder.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String result = editText.getText().toString();
@@ -152,7 +152,7 @@ public class ExtraDictionarySettingsFragment extends PreferenceFragment {
                 }
             }
         });
-        builder.setNegativeButton(R.string.cancel, null);
+        builder.setNegativeButton(android.R.string.no, null);
         builder.setView(mView);
         builder.show();
     }
@@ -189,7 +189,7 @@ public class ExtraDictionarySettingsFragment extends PreferenceFragment {
                     singleChoiceResult = which;
                 }
             });
-            builder.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+            builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     if (singleChoiceResult == 0 && defaultOpinion) {
@@ -199,7 +199,7 @@ public class ExtraDictionarySettingsFragment extends PreferenceFragment {
                     }
                 }
             });
-            builder.setNegativeButton(R.string.cancel, null);
+            builder.setNegativeButton(android.R.string.no, null);
             builder.show();
         } else {
             Toast.makeText(getActivity(), R.string.settings_extra_words_error, Toast.LENGTH_SHORT).show();
@@ -236,7 +236,7 @@ public class ExtraDictionarySettingsFragment extends PreferenceFragment {
         editText.setText(name);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.settings_extra_words_rename_dictionary);
-        builder.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String result = editText.getText().toString();
@@ -251,7 +251,7 @@ public class ExtraDictionarySettingsFragment extends PreferenceFragment {
                 }
             }
         });
-        builder.setNegativeButton(R.string.cancel, null);
+        builder.setNegativeButton(android.R.string.no, null);
         builder.setView(mView);
         builder.show();
     }
@@ -269,7 +269,7 @@ public class ExtraDictionarySettingsFragment extends PreferenceFragment {
                     checkedItem[which] = isChecked;
                 }
             });
-            builder.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+            builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     final ArrayList<String> content = new ArrayList<>();
@@ -283,7 +283,7 @@ public class ExtraDictionarySettingsFragment extends PreferenceFragment {
                     dialogMultiManage(type, content, content_names);
                 }
             });
-            builder.setNegativeButton(R.string.cancel, null);
+            builder.setNegativeButton(android.R.string.no, null);
             builder.show();
         } else {
             Toast.makeText(getActivity(), R.string.settings_extra_words_error, Toast.LENGTH_SHORT).show();

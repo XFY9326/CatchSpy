@@ -37,13 +37,13 @@ public class PermissionMethod {
         AlertDialog.Builder permissionExplanation = new AlertDialog.Builder(mActivity);
         permissionExplanation.setTitle(R.string.permission_warn);
         permissionExplanation.setMessage(R.string.permission_warn_explanation);
-        permissionExplanation.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+        permissionExplanation.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 askExStoragePermission(mActivity);
             }
         });
-        permissionExplanation.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+        permissionExplanation.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 mActivity.finish();

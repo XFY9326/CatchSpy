@@ -6,8 +6,6 @@
     <string name="player_number_spy">Spy Number:</string>
     <string name="player_number_white_board">White Board Number:</string>
     <string name="settings">Settings</string>
-    <string name="done">Done</string>
-    <string name="cancel">Cancel</string>
     <string name="about">About</string>
     <string name="imageview_app_icon">Application Icon</string>
     <string name="application_version">Version:</string>
@@ -62,7 +60,7 @@
     <string name="settings_extra_words_only_use_extra_words_sum">Only use extra words to play game.</string>
     <string name="settings_extra_words">Extra Dictionary</string>
     <string name="settings_extra_words_import">Import extra words</string>
-    <string name="settings_extra_words_import_sum">Use custom rules to import different words text</string>
+    <string name="settings_extra_words_import_sum">Use custom rules to import words text</string>
     <string name="settings_extra_words_edit">Edit extra words</string>
     <string name="settings_extra_words_edit_sum">Edit extra dictionary file.</string>
     <string name="settings_extra_words_combine">Combine different words file</string>
@@ -134,4 +132,9 @@
     <string name="settings_general_white_board_not_first">White board not first</string>
     <string name="settings_general_white_board_not_first_sum">The first player will not be white board.</string>
     <string name="game_rule">Game Rule</string>
+    <string name="player_name_change_title">Previous custom player name exist!</string>
+    <string name="player_name_change_content">Delete this custom player name?</string>
+    <string name="skip">Skip</string>
+    <string name="settings_general_notify_player_name_delete">Notify delete custom player name</string>
+    <string name="settings_general_notify_player_name_delete_sum">Not auto delete custom player name.</string>
 </resources>
